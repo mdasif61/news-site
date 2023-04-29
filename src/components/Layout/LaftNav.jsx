@@ -5,7 +5,7 @@ const LaftNav = () => {
   const [category, setCategory] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:1000/categorys")
+    fetch("http://localhost:1020/category")
       .then((res) => res.json())
       .then((data) => setCategory(data));
   }, []);
@@ -13,7 +13,7 @@ const LaftNav = () => {
   return (
     <div>
       {category.map((cate) => (
-        <Link to={`/categorys/${cate.id}`}>
+        <Link to={`/category/${cate.id}`}>
           <p className="text-black">{cate.name}</p>
         </Link>
       ))}

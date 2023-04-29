@@ -1,7 +1,21 @@
-import React from "react";
-import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
+import React, { useContext } from "react";
+import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { AuthContext } from "./AuthProvider";
+import { Link } from "react-router-dom";
 
 const NavigationBar = () => {
+  const {user,logOut}=useContext(AuthContext)
+
+  const handleLogOut=()=>{
+    logOut()
+    .then(result=>{
+      console.log(result)
+    })
+    .catch(error=>{
+      console.log(error)
+    })
+  }
+
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
@@ -9,14 +23,15 @@ const NavigationBar = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Link to='/category/0'><p>Home</p></Link>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">Profile</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              Login
-            </Nav.Link>
+            {
+              user && <p className="text-white">Profile</p>
+            }
+            {user?
+             <Button onClick={handleLogOut}>Log Out</Button>
+            :<Link to='/login'><Button>Login</Button></Link>} 
           </Nav>
         </Navbar.Collapse>
       </Container>
