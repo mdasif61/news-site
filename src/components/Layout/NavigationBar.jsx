@@ -19,7 +19,7 @@ const NavigationBar = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">Latest News</Navbar.Brand>
+        <Navbar.Brand href="/">Latest News</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -27,7 +27,7 @@ const NavigationBar = () => {
           </Nav>
           <Nav>
             {
-              user && <p className="text-white">Profile</p>
+              user && <p className="text-white me-3">Profile</p>
             }
             {user?
              <Button onClick={handleLogOut}>Log Out</Button>

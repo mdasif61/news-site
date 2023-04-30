@@ -6,7 +6,7 @@ const SingleNews = () => {
     const singleNews=useLoaderData();
     const { title, image_url, details,_id,category_id } = singleNews;
     return (
-        <Card>
+        <Card className='my-4'>
       <Card.Img variant="top" src={image_url} />
       <Card.Body>
         <Card.Title>{title}</Card.Title>

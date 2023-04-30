@@ -6,6 +6,8 @@ import SingleNews from "./SingleNews";
 import LoginLayout from "./LoginLayout";
 import Login from "./Login";
 import Register from "./Register";
+import PrivateRoute from "./PrivateRoute";
+import Tarms from "./Tarms";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +28,7 @@ const router = createBrowserRouter([
   },
   {
     path:'news',
-    element:<NewsLayout></NewsLayout>,
+    element:<PrivateRoute><NewsLayout></NewsLayout></PrivateRoute>,
     children:[
       {
         path:':id',
@@ -48,6 +50,10 @@ const router = createBrowserRouter([
         element:<Register></Register>
       }
     ]
+  },
+  {
+    path:'/terms',
+    element:<Tarms></Tarms>
   }
 ]);
 

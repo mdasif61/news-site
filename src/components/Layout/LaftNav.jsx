@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import LeftCart from "./LeftCart";
 
 const LaftNav = () => {
   const [category, setCategory] = useState([]);
@@ -17,6 +18,7 @@ const LaftNav = () => {
           <p className="text-black">{cate.name}</p>
         </Link>
       ))}
+      <LeftCart></LeftCart>
     </div>
   );
 };
